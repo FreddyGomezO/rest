@@ -12,12 +12,12 @@ public class WebConfig {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/api/**")
+                registry.addMapping("/**")  // Aplica a todas las rutas
                         .allowedOrigins(
                             "https://freddygomezo.github.io",
-                            "http://localhost:3000" 
+                            "http://localhost:3000" // Para desarrollo
                         )
-                        .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
+                        .allowedMethods("*")
                         .allowedHeaders("*")
                         .allowCredentials(true)
                         .maxAge(3600);
