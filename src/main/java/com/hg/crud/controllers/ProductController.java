@@ -19,33 +19,29 @@ import com.hg.crud.models.ProductDTO;
 import com.hg.crud.repositories.IProductDAO;
 
 @RestController
-@CrossOrigin(origins = "*", methods = { RequestMethod.POST, RequestMethod.GET, RequestMethod.PUT,
-        RequestMethod.DELETE })
 @RequestMapping("/api/products")
 public class ProductController {
 
     @Autowired
     private IProductDAO repository;
 
-    @PostMapping("/product")
+    @PostMapping
     public ProductDTO create(@Validated @RequestBody ProductDTO p) {
         return repository.insert(p);
     }
 
-    // Cambié @GetMapping("/") por @GetMapping sin parámetro
     @GetMapping
     public List<ProductDTO> readAll() {
         return repository.findAll();
     }
 
-    @PutMapping("/product/{id}")
+    @PutMapping("/{id}")
     public ProductDTO update(@PathVariable String id, @Validated @RequestBody ProductDTO p) {
         return repository.save(p);
     }
 
-    @DeleteMapping("/product/{id}")
+    @DeleteMapping("/{id}")
     public void delete(@PathVariable String id) {
         repository.deleteById(id);
     }
-
 }
