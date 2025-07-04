@@ -26,6 +26,7 @@ public class ProductController {
 
 	@Autowired
 	private IProductDAO repository;
+	
 
 	@PostMapping("/product")
 	public ProductDTO create(@Validated @RequestBody ProductDTO p) {
