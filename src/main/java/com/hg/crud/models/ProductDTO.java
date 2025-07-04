@@ -9,17 +9,17 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class ProductDTO {
 	
 	@Id
-	private String id;
+	private String _id;
 	private String name;
 	private Double price;
 	private LocalDate expiry_date;
 
 	public String get_id() {
-		return id;
+		return _id;
 	}
 
 	public void set_id(String id) {
-		this.id = id;
+		this._id = id;
 	}
 
 	public String getName() {
